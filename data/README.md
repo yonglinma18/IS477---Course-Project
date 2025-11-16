@@ -24,10 +24,9 @@ This document records all download information so the data can be easily re-acce
   - Processed subsets will be added to this repository once cleaned.
 
 ## Folder Structure
-data/
- ├── raw/         # Placeholder for raw data (too large for GitHub)
- ├── processed/   # Cleaned / filtered datasets for analysis
- └── README.md    # Data documentation (this file)
+- `data/raw/` – Placeholder for raw data (too large for GitHub; full files stored locally).
+- `data/processed/` – Cleaned or filtered datasets that are small enough to store in the repository.
+- `data/README.md` – Data documentation file describing sources, formats, and storage decisions.
  
 ## Reproducibility
 Anyone accessing this repository can re-download the original datasets using the links provided above.  

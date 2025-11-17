@@ -1,8 +1,8 @@
 # Data Sources and Storage Notes
-This folder documents the datasets used in our IS477 course project.
-Some of the original raw datasets exceed GitHub’s 25MB upload limit, so full raw files are stored locally.
-Only cleaned and analysis-ready subsets are stored in `data/processed/`.
-This document ensures full transparency and reproducibility of data acquisition, cleaning, and storage.
+- This folder documents the datasets used in our IS477 course project.  
+- Some of the original raw datasets exceed GitHub’s 25MB upload limit, so the full raw files are stored locally.  
+- Only cleaned and analysis-ready subsets are stored in `data/processed/`.  
+- This document ensures full transparency and reproducibility of data acquisition, cleaning, and storage.
 
 ## USDA Food Environment Atlas (Raw Data Stored Locally)
 
@@ -57,6 +57,6 @@ cdc_clean.csv
 README.md # Documentation describing data sources, cleaning, and storage
 
 ## Reproducibility
-Anyone accessing this repository can re-download the original datasets using the source links above.  
-All cleaning steps are documented to ensure the processed datasets can be regenerated if needed.
-Only cleaned, analysis-ready files are stored in GitHub due to file size limitations.
+- Anyone accessing this repository can re-download the original datasets using the source links above.  
+- All cleaning steps are documented to ensure the processed datasets can be regenerated if needed.
+- Only cleaned, analysis-ready files are stored in GitHub due to file size limitations.

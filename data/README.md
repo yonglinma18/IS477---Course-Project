@@ -49,12 +49,11 @@ We extracted the measure **“Obesity among adults”**.
 - Only cleaned obesity subset is included in the repository
 
 ## Folder Structure
-data/
-raw/ # Placeholder for raw data (stored locally due to file size)
-processed/ # Cleaned datasets ready for merging & analysis
-usda_clean.csv
-cdc_clean.csv
-README.md # Documentation describing data sources, cleaning, and storage
+- `data/raw/` – Placeholder for raw data (stored locally due to file size limits)
+- `data/processed/` – Cleaned datasets ready for merging & analysis  
+  - `usda_clean.csv`
+  - `cdc_clean.csv`
+- `data/README.md` – Documentation describing data sources, cleaning, and storage
 
 ## Reproducibility
 - Anyone accessing this repository can re-download the original datasets using the source links above.  

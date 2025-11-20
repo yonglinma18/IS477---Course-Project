@@ -1,7 +1,7 @@
 # Data Sources and Storage Notes
 - This folder documents the datasets used in our IS477 course project.  
-- Some of the original raw datasets exceed GitHub’s 25MB upload limit, so the full raw files are stored locally.  
-- Only cleaned and analysis-ready subsets are stored in `data/processed/`.  
+- Because the original datasets exceed GitHub’s 25MB upload limit, only cleaned and analysis-ready subsets are stored in `data/processed/`.  
+- The full raw files are stored locally.  
 - This document ensures full transparency and reproducibility of data acquisition, cleaning, and storage.
 
 ## USDA Food Environment Atlas (Raw Data Stored Locally)
@@ -14,12 +14,41 @@
 County-level indicators related to food access, food environment, and food resources.  
 We extracted only the variables related to **fast-food restaurant density**.
 
-### Cleaning Summary  
-- Extracted the variable **FFRPT20** (fast-food restaurants per 1,000 population)  
-- Kept `State`, `County`, `FIPS`, and fast-food density  
-- Removed non-county rows (e.g., `'US'`, blank counties)  
-- Ensured numeric values, removed duplicates  
-- Saved cleaned data to: data/processed/usda_clean.csv
+## Cleaning Summary (Performed in OpenRefine)
+
+### 1. Imported raw USDA CSV into OpenRefine  
+
+### 2. Filtered to keep only fast-food restaurant density  
+- Used **Facet → Text Facet** on `Variable_Code`.  
+- Selected **FFRPTH20** (fast-food restaurants per 1,000 population, 2020).  
+- Removed all other indicators.
+
+### 3. Kept only relevant columns  
+Extracted:
+- `State`
+- `County`
+- `FIPS`
+- Density value (renamed to `fast_food_density`)
+
+### 4. Removed non-county rows  
+Deleted:
+- Rows belonging to **DC** (project focuses on 50 U.S. states)
+
+### 5. Validated FIPS codes
+We validated the FIPS column using a Custom Text Facet:
+- Created a facet using the expression: `length(value)`
+- Confirmed that all FIPS codes were exactly 5 digits
+- Verified that no rows contained blank or malformed FIPS values
+
+### 6. Cleaned fast-food density values  
+- Faceted `fast_food_density`  
+- Removed invalid placeholders:  
+- `-9999`  
+- `-8888`  
+- Confirmed remaining values are valid numeric densities
+
+### 7. Exported cleaned dataset  
+Saved as: `data/processed/foodatlas_cleaned.csv`
 
 ### Notes  
 - The full USDA dataset is ~60–80MB → too large for GitHub  
@@ -36,26 +65,63 @@ We extracted only the variables related to **fast-food restaurant density**.
 Model-based estimates for chronic disease and health outcomes at the county level.  
 We extracted the measure **“Obesity among adults”**.
 
-### Cleaning Summary  
-- Filtered rows where `Measure = "Obesity among adults"`  
-- Selected relevant columns: `State`, `County`, `Obesity Rate`, `FIPS`  
-- Kept only the most recent year (2022)  
-- Removed aggregate `'US'` rows with blank county names  
-- Saved cleaned data to: data/processed/cdc_clean.csv
+## Cleaning Summary (Performed in OpenRefine)
+
+### 1. Imported raw CDC dataset into OpenRefine
+
+### 2. Filtered to keep only obesity data  
+- Faceted on `Measure`  
+- Kept only **“Obesity among adults”**
+
+### 3. Kept only Age-adjusted prevalence  
+- Faceted `Data_Value_Type`  
+- Retained: **Age-adjusted prevalence**  
+- Removed:  
+- Crude prevalence  
+
+### 4. Selected relevant columns  
+Kept:
+- `StateAbbr`(renamed to `State`)
+- `Location`(renamed to `County`)
+- `LocationID`(renamed to `FIPS`)
+- `Data_Value` (renamed to `Obesity_Rate`)
+
+### 5. Removed non-county and aggregated rows  
+Deleted:
+- Rows where `State = "US"`  
+- Rows from **DC** (not part of 50-state scope)
+
+### 6. Validated FIPS codes  
+We validated the FIPS column using a Custom Text Facet:
+- Created a facet using the expression: `length(value)`
+- Confirmed that all FIPS codes were exactly 5 digits
+- Verified that no rows contained blank or malformed FIPS values
+
+### 7. Cleaned obesity rate values  
+Faceted Obesity_Rate using Text Facet to inspect value distribution
+Verified that all values were:
+- numeric
+- within a reasonable range (0–100)
+- non-blank
+- No invalid codes were present
+
+### 8. Exported cleaned dataset  
+Saved as: `data/processed/cdc_cleaned.csv`
 
 ### Notes  
-- The original CDC PLACES dataset exceeds GitHub’s 25MB limit (~60MB+)  
-- Full raw data stored locally  
-- Only cleaned obesity subset is included in the repository
+- The full CDC dataset is ~60MB → too large for GitHub  
+- The full raw dataset is stored locally  
+- Only cleaned, compact subsets are uploaded
 
 ## Folder Structure
 - `data/raw/` – Placeholder for raw data (stored locally due to file size limits)
 - `data/processed/` – Cleaned datasets ready for merging & analysis  
-  - `usda_clean.csv`
-  - `cdc_clean.csv`
+  - `foodatlas_cleaned.csv`
+  - `cdc_cleaned.csv`
 - `data/README.md` – Documentation describing data sources, cleaning, and storage
 
 ## Reproducibility
-- Anyone accessing this repository can re-download the original datasets using the source links above.  
-- All cleaning steps are documented to ensure the processed datasets can be regenerated if needed.
-- Only cleaned, analysis-ready files are stored in GitHub due to file size limitations.
+- Anyone can re-download the raw datasets using the source links above.  
+- All cleaning steps were performed using **OpenRefine**, which supports full reproducibility through its facet filters and transformation history.  
+- Only cleaned subsets are stored in GitHub due to file-size limits.  
+- The processed datasets can be regenerated by applying the documented OpenRefine steps to the raw data.

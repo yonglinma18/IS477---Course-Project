@@ -101,7 +101,7 @@ We validated the FIPS column using a Custom Text Facet:
 Faceted `Obesity_Rate` using a Text Facet to inspect value distribution.  
 Verified that all values were:
 - numeric  
-- within a reasonable range (0–100)  
+- within a reasonable range (0-100)  
 - non-blank  
 - no invalid codes were present  
 

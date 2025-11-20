@@ -45,7 +45,7 @@ We validated the FIPS column using a Custom Text Facet:
 - Removed invalid placeholders:  
 - `-9999`  
 - `-8888`  
-- Confirmed remaining values are valid numeric densities
+- Confirmed all remaining values are valid numeric densities
 
 ### 7. Exported cleaned dataset  
 Saved as: `data/processed/foodatlas_cleaned.csv`
@@ -98,12 +98,12 @@ We validated the FIPS column using a Custom Text Facet:
 - Verified that no rows contained blank or malformed FIPS values
 
 ### 7. Cleaned obesity rate values  
-Faceted Obesity_Rate using Text Facet to inspect value distribution
+Faceted `Obesity_Rate` using a Text Facet to inspect value distribution.  
 Verified that all values were:
-- numeric
-- within a reasonable range (0–100)
-- non-blank
-- No invalid codes were present
+- numeric  
+- within a reasonable range (0–100)  
+- non-blank  
+- no invalid codes were present  
 
 ### 8. Exported cleaned dataset  
 Saved as: `data/processed/cdc_cleaned.csv`

@@ -1,7 +1,7 @@
-# Project Overview & Overall Progress:
+# 1.Project Overview & Overall Progress:
 Our project investigates whether fast-food restaurant density in U.S. counties is associated with adult obesity rates, using two authoritative federal datasets: the USDA Food Environment Atlas (2025) and the CDC PLACES county-level health indicators (2024). Since Milestone 2, we have made progress in acquisition, documentation, cleaning, validation, and integration of the data. Our entire data pipeline, from downloading the two datasets to producing the final merged dataset, is now fully reproducible and complete. With all preprocessing tasks finished, the project is ready to transition into the exploratory data analysis phase.
 
-# Progress Update by Project Plan Tasks：
+# 2.Progress Update by Project Plan Tasks：
 
 ### Task 1: Data Collection & Acquisition (Completed):
 We successfully developed a fully reproducible acquisition workflow in Google Colab. Because the raw USDA and CDC files exceed GitHub’s upload limits, only cleaned and size-reduced subsets are included in the repository, while the raw datasets are downloaded programmatically. The acquisition script automatically retrieves both datasets, creates directory structures, verifies file integrity using SHA-256 checksums, and documents all procedures in the repository. This ensures that any user can reproduce the entire acquisition process directly from our notebook.
@@ -51,12 +51,12 @@ We added more detailed explanations of naming conventions, cleaning logic, and a
 Because we dedicated significant time to ensuring the quality and consistency of our cleaned datasets, we have not yet begun the analysis stage and will be pushing that work into the following weeks.
 
 # 5. Remaining Gaps & Next Steps:
-## Remaining Gaps:
+### Remaining Gaps:
 - Preliminary statistical checks of the merged dataset are still needed.
 - No exploratory visualizations have been created yet.
 - No correlation or hypothesis testing has been conducted.
 
-## Next Steps (Milestone 4):
+### Next Steps (Milestone 4):
 - Generate EDA visualizations (scatterplots, distributions, county-level maps).
 - Compute correlations and explore preliminary statistical relationships.
 - Begin writing the analytical narrative for the final report.

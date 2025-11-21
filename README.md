@@ -2,18 +2,16 @@
 University of Illinois Urbana-Champaign - Fall 2025 - Data Curation & Management
 
 # Project Overview
-
 This project explores the relationship between **fast-food restaurant density** and **adult obesity rates** across U.S. counties.
 
 We use two publicly available datasets:
 
 - USDA Food Environment Atlas (2025 Release)
-- CDC PLACES – Local Data for Better Health (2024 Release)
+- CDC PLACES - Local Data for Better Health (2024 Release)
 
 All acquisition, cleaning, and integration were completed using **Google Colab** and **OpenRefine**.
 
 # Storage and Organization
-
 This project follows a clear and reproducible directory structure.  
 Raw data, processed data, notebooks, and scripts are organized in dedicated folders.
 
@@ -39,7 +37,7 @@ IS477---Course-Project/
 
 ## Naming Conventions
 
-### Raw Data (not uploaded to GitHub)
+### Raw Data (not uploaded to GitHub due to upload size limits)
 Examples:
 - usda_food_atlas_2025.zip
 - cdc_places_2024.csv
@@ -67,7 +65,7 @@ All filenames follow lowercase snake_case.
 # Extraction and Enrichment
 - This step is not applicable to our project.
 - Both USDA Food Environment Atlas and CDC PLACES datasets are already structured, tabular CSV files provided by federal agencies.
-- No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment (e.g., API lookups, census augmentation, geocoding, or metadata retrieval) was required.
+- No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment was required.
 
 # Data Quality and Cleaning
 All data profiling and cleaning were performed using **OpenRefine**.  
@@ -95,10 +93,10 @@ All FIPS values were validated during the cleaning stage to ensure consistent fo
 2. Verified that all FIPS codes were valid 5-digit strings.
 3. Performed an **inner merge** on the shared key: `FIPS`.
 4. Ensured no duplicate counties remained after merging.
-5. Exported the final integrated dataset as `merged_usda_cdc.csv`.
+5. Exported the final integrated dataset as `merged_output_cleaned.csv`.
 
 ## Resulting Integrated Schema
-- `FIPS` — County identifier  
+- `FIPS` - County identifier  
 - `State`  
 - `County`  
 - `fast_food_density` (USDA)  
@@ -109,17 +107,10 @@ The full integration script is available in:
 notebooks/integration.ipynb
 
 # Database Usage
-
-A relational database (PostgreSQL/MySQL/SQLite) was **not used**.  
-All integration was performed using:
-
-- Google Colab (Pandas)
-- OpenRefine (filtering, cleaning, transformation)
-
+A relational database (PostgreSQL/MySQL/SQLite) was **not used** in this project, as all integration was performed using CSV files, OpenRefine, and Pandas.  
 Therefore, this step is **not applicable** to our workflow.
 
 # Reproducibility
-
 - Raw datasets can be re-downloaded using the acquisition notebook or script.
 - All cleaning steps are documented in `data/README.md`.
 - Cleaned datasets (`data/processed/`) are ready for analysis.

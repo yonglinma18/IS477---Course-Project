@@ -1,6 +1,5 @@
 # IS477 Final Project – Fast-Food Density & Obesity Analysis
-University of Illinois Urbana-Champaign  
-Fall 2025 – Data Curation & Management
+University of Illinois Urbana-Champaign - Fall 2025 - Data Curation & Management
 
 # Project Overview
 
@@ -21,34 +20,22 @@ Raw data, processed data, notebooks, and scripts are organized in dedicated fold
 A relational database (RDBMS) was **not used**.  
 CSV and OpenRefine workflows were sufficient for this project.
 
-## Filesystem Structure
+## Folder Structure
 IS477---Course-Project/
-│
-├── data/
-│ ├── raw/ # Raw datasets (not uploaded; stored locally)
-│ │ └── README.md # Data source notes
-│ │
-│ ├── processed/ # Cleaned datasets (uploaded)
-│ │ ├── foodatlas_clean.csv
-│ │ └── cdc_cleaned.csv
-│ │
-│ └── README.md # Cleaning steps and documentation
-│
-├── notebooks/
-│ ├── acquisition.ipynb
-│ ├── cleaning.ipynb
-│ ├── integration.ipynb
-│ └── analysis.ipynb
-│
-├── scripts/
-│ └── acquire_data.py
-│
-├── results/
-│ ├── figures/
-│ └── tables/
-│
-└── ProjectPlan.md
-
+- data/
+  - raw/                     # Raw datasets (not uploaded; stored locally)
+  - processed/               # Cleaned datasets (uploaded)
+    - foodatlas_clean.csv
+    - cdc_cleaned.csv
+  - README.md                # Data source notes + cleaning documentation
+- README.md
+- notebooks/
+  - acquisition.ipynb
+  - cleaning.ipynb
+  - integration.ipynb
+- scripts/
+  - acquire_data.py          
+- ProjectPlan.md
 
 ## Naming Conventions
 
@@ -63,7 +50,6 @@ Stored in: `data/processed/`
 Naming pattern:
 <dataset>_clean.csv
 
-
 Examples:
 - foodatlas_clean.csv
 - cdc_cleaned.csv
@@ -72,7 +58,6 @@ Examples:
 - acquisition.ipynb
 - cleaning.ipynb
 - integration.ipynb
-- analysis.ipynb
 
 ### Scripts
 - acquire_data.py

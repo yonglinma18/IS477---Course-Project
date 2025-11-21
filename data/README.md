@@ -20,7 +20,7 @@ We extracted only the variables related to **fast-food restaurant density**.
 ### 1. Imported raw USDA CSV into OpenRefine  
 
 ### 2. Filtered to keep only fast-food restaurant density  
-- Used **Facet → Text Facet** on `Variable_Code`.  
+- Used **Facet: Text Facet** on `Variable_Code`.  
 - Selected **FFRPTH20** (fast-food restaurants per 1,000 population, 2020).  
 - Removed all other indicators.
 

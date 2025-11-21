@@ -131,11 +131,11 @@ Saved as: `data/processed/cdc_cleaned.csv`
 - Only cleaned, compact subsets are uploaded
 
 ## Folder Structure
-- `data/raw/` – Placeholder for raw data (stored locally due to file size limits)
+- `data/raw/` - Placeholder for raw data (stored locally due to file size limits)
 - `data/processed/` - Cleaned datasets ready for merging & analysis  
   - `foodatlas_cleaned.csv`
   - `cdc_cleaned.csv`
-- `data/README.md` – Documentation describing data sources, cleaning, and storage
+- `data/README.md` - Documentation describing data sources, cleaning, and storage
 
 ## Reproducibility
 - Anyone can re-download the raw datasets using the source links above.  

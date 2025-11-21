@@ -51,7 +51,7 @@ We validated the FIPS column using a Custom Text Facet:
 Saved as: `data/processed/foodatlas_cleaned.csv`
 
 ### Notes  
-- The full USDA dataset is ~60–80MB → too large for GitHub  
+- The full USDA dataset is ~60–80MB: too large for GitHub  
 - The full raw dataset is stored locally  
 - Only cleaned, compact subsets are uploaded
 
@@ -115,7 +115,7 @@ Saved as: `data/processed/cdc_cleaned.csv`
 
 ## Folder Structure
 - `data/raw/` – Placeholder for raw data (stored locally due to file size limits)
-- `data/processed/` – Cleaned datasets ready for merging & analysis  
+- `data/processed/` - Cleaned datasets ready for merging & analysis  
   - `foodatlas_cleaned.csv`
   - `cdc_cleaned.csv`
 - `data/README.md` – Documentation describing data sources, cleaning, and storage

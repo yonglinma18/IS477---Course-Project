@@ -11,6 +11,34 @@ We use two publicly available datasets:
 
 All acquisition, cleaning, and integration were completed using **Google Colab** and **OpenRefine**.
 
+# Data Collection and Acquisition
+Because the USDA and CDC datasets exceed GitHub’s file-size limits, only the acquisition scripts and processed outputs are included in this repository.
+
+## Acquisition Scripts
+The acquisition workflow is implemented in:
+notebooks/acquisition.ipynb
+
+This notebook uses `requests` to:
+- Download the USDA ZIP file  
+- Download the CDC CSV file (via Box link)  
+- Save files into `data/raw/`  
+- Compute SHA-256 checksums to verify integrity
+
+## Checksum Verification
+For reproducibility, SHA-256 checksums were generated using Python:
+
+- Allows validation of downloaded files  
+- Ensures file integrity when re-running acquisition  
+- Required because raw datasets are not stored directly in GitHub
+
+## Storage Notes
+Processed subsets suitable for analysis are available in:
+data/processed/
+
+## Reproducibility
+Anyone can fully reproduce the acquisition process by running the notebook:
+notebooks/acquisition.ipynb
+
 # Storage and Organization
 This project follows a clear and reproducible directory structure.  
 Raw data, processed data, notebooks, and scripts are organized in dedicated folders.

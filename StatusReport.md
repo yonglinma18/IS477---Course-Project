@@ -1,7 +1,7 @@
-# 1.Project Overview & Overall Progress:
+# 1. Project Overview & Overall Progress:
 Our project investigates whether fast-food restaurant density in U.S. counties is associated with adult obesity rates, using two authoritative federal datasets: the USDA Food Environment Atlas (2025) and the CDC PLACES county-level health indicators (2024). Since Milestone 2, we have made progress in acquisition, documentation, cleaning, validation, and integration of the data. Our entire data pipeline, from downloading the two datasets to producing the final merged dataset, is now fully reproducible and complete. With all preprocessing tasks finished, the project is ready to transition into the exploratory data analysis phase.
 
-# 2.Progress Update by Project Plan Tasks：
+# 2. Progress Update by Project Plan Tasks：
 
 ### Task 1: Data Collection & Acquisition (Completed):
 We successfully developed a fully reproducible acquisition workflow in Google Colab. Because the raw USDA and CDC files exceed GitHub’s upload limits, only cleaned and size-reduced subsets are included in the repository, while the raw datasets are downloaded programmatically. The acquisition script automatically retrieves both datasets, creates directory structures, verifies file integrity using SHA-256 checksums, and documents all procedures in the repository. This ensures that any user can reproduce the entire acquisition process directly from our notebook.

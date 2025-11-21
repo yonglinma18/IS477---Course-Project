@@ -57,7 +57,6 @@ IS477---Course-Project/
 - README.md
 - notebooks/
   - acquisition.ipynb
-  - cleaning.ipynb
   - integration.ipynb
 - scripts/
   - acquire_data.py          
@@ -82,7 +81,6 @@ Examples:
 
 ### Notebooks
 - acquisition.ipynb
-- cleaning.ipynb
 - integration.ipynb
 
 ### Scripts

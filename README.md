@@ -1,4 +1,4 @@
-# IS477 Final Project – Fast-Food Density & Obesity Analysis
+# IS477 Final Project - Fast-Food Density & Obesity Analysis
 University of Illinois Urbana-Champaign - Fall 2025 - Data Curation & Management
 
 # Project Overview

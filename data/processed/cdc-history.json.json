@@ -1,0 +1,206 @@
+[
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Measure",
+          "expression": "value",
+          "columnName": "Measure",
+          "invert": true,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Obesity among adults",
+                "l": "Obesity among adults"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "StateDesc",
+    "description": "Remove column StateDesc"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Year",
+    "description": "Remove column Year"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DataSource",
+    "description": "Remove column DataSource"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Category",
+    "description": "Remove column Category"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Data_Value_Type",
+          "expression": "value",
+          "columnName": "Data_Value_Type",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Crude prevalence",
+                "l": "Crude prevalence"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Measure",
+    "description": "Remove column Measure"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Data_Value_Unit",
+    "description": "Remove column Data_Value_Unit"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Data_Value_Type",
+    "description": "Remove column Data_Value_Type"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Data_Value_Footnote_Symbol",
+    "description": "Remove column Data_Value_Footnote_Symbol"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Data_Value_Footnote",
+    "description": "Remove column Data_Value_Footnote"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Low_Confidence_Limit",
+    "description": "Remove column Low_Confidence_Limit"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "High_Confidence_Limit",
+    "description": "Remove column High_Confidence_Limit"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TotalPopulation",
+    "description": "Remove column TotalPopulation"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TotalPop18plus",
+    "description": "Remove column TotalPop18plus"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CategoryID",
+    "description": "Remove column CategoryID"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MeasureId",
+    "description": "Remove column MeasureId"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DataValueTypeID",
+    "description": "Remove column DataValueTypeID"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Short_Question_Text",
+    "description": "Remove column Short_Question_Text"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Geolocation",
+    "description": "Remove column Geolocation"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "StateAbbr",
+    "newColumnName": "State",
+    "description": "Rename column StateAbbr to State"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LocationName",
+    "newColumnName": "County",
+    "description": "Rename column LocationName to County"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Data_Value",
+    "newColumnName": "Obesity_Rate",
+    "description": "Rename column Data_Value to Obesity_Rate"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LocationID",
+    "newColumnName": "FIPS",
+    "description": "Rename column LocationID to FIPS"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "State",
+          "expression": "value",
+          "columnName": "State",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "US",
+                "l": "US"
+              }
+            },
+            {
+              "v": {
+                "v": "DC",
+                "l": "DC"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  }
+]

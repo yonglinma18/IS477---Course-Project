@@ -1,0 +1,103 @@
+[
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Variable_Code",
+          "expression": "value",
+          "columnName": "Variable_Code",
+          "invert": true,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "FFRPTH20",
+                "l": "FFRPTH20"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Variable_Code",
+    "description": "Remove column Variable_Code"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Value",
+    "newColumnName": "fast_food_density",
+    "description": "Rename column Value to fast_food_density"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "State",
+          "expression": "value",
+          "columnName": "State",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "DC",
+                "l": "DC"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "fast_food_density",
+          "expression": "value",
+          "columnName": "fast_food_density",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "-9999",
+                "l": "-9999"
+              }
+            },
+            {
+              "v": {
+                "v": "-8888",
+                "l": "-8888"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  }
+]

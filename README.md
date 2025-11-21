@@ -69,8 +69,21 @@ All filenames follow lowercase snake_case.
 - Both USDA Food Environment Atlas and CDC PLACES datasets are already structured, tabular CSV files provided by federal agencies.
 - No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment (e.g., API lookups, census augmentation, geocoding, or metadata retrieval) was required.
 
-# Data Integration
+# Data Quality and Cleaning
+All data profiling and cleaning were performed using **OpenRefine**.  
+Detailed cleaning steps for both datasets (USDA and CDC) are fully documented in:
+data/README.md
 
+Cleaning actions include:
+- Profiling with facets (numeric/text)
+- Validating FIPS codes
+- Filtering non-county or invalid records
+- Standardizing variable names and column formats
+- Exporting cleaned subsets for analysis
+
+The complete OpenRefine operation history (JSON recipe) has also been uploaded to ensure full reproducibility.
+
+# Data Integration
 Dataset integration was performed in Google Colab using **Pandas**, after both datasets were independently cleaned in OpenRefine.
 
 ## Integration Key

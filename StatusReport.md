@@ -52,12 +52,12 @@ Because we dedicated significant time to ensuring the quality and consistency of
 
 # 5. Remaining Gaps & Next Steps
 - Remaining Gaps:
-Preliminary statistical checks of the merged dataset are still needed.
-No exploratory visualizations have been created yet.
-No correlation or hypothesis testing has been conducted.
+- Preliminary statistical checks of the merged dataset are still needed.
+- No exploratory visualizations have been created yet.
+- No correlation or hypothesis testing has been conducted.
 
 - Next Steps (Milestone 4):
-Generate EDA visualizations (scatterplots, distributions, county-level maps).
-Compute correlations and explore preliminary statistical relationships.
-Begin writing the analytical narrative for the final report.
-Finalize and upload the merged dataset.
+- Generate EDA visualizations (scatterplots, distributions, county-level maps).
+- Compute correlations and explore preliminary statistical relationships.
+- Begin writing the analytical narrative for the final report.
+- Finalize and upload the merged dataset.

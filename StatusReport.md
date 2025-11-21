@@ -3,10 +3,10 @@ Our project investigates whether fast-food restaurant density in U.S. counties i
 
 # Progress Update by Project Plan Tasks：
 
-## Task 1: Data Collection & Acquisition (Completed):
+### Task 1: Data Collection & Acquisition (Completed):
 We successfully developed a fully reproducible acquisition workflow in Google Colab. Because the raw USDA and CDC files exceed GitHub’s upload limits, only cleaned and size-reduced subsets are included in the repository, while the raw datasets are downloaded programmatically. The acquisition script automatically retrieves both datasets, creates directory structures, verifies file integrity using SHA-256 checksums, and documents all procedures in the repository. This ensures that any user can reproduce the entire acquisition process directly from our notebook.
 
-## Task 2: Data Cleaning & Quality Checking (Completed):
+### Task 2: Data Cleaning & Quality Checking (Completed):
 Data cleaning was the most time-intensive portion of this milestone. All cleaning work was conducted in OpenRefine, ensuring reproducibility through operation-history JSON files. We split the cleaning workflows by dataset.
 
 - USDA Cleaning (Completed by Yonglin)
@@ -15,7 +15,7 @@ Yonglin extracted only the variables relevant to fast-food density, focusing exc
 - CDC Cleaning (Completed by Yonglin)
 The CDC dataset was filtered to retain only the indicator “Obesity among adults,” focusing on age-adjusted prevalence values. Non-county rows, national aggregates, and Washington D.C. were removed to match our 50-state scope. Column names were standardized (including State, County, FIPS, and Obesity_rate), and malformed FIPS or numeric values were corrected. The final dataset, cdc_cleaned.csv, was exported and documented thoroughly. All cleaning steps are recorded in OpenRefine JSON files for full reproducibility.
 
-## Task 3: Data Integration (Completed):
+### Task 3: Data Integration (Completed):
 Richard conducted the integration workflow in Google Colab using Pandas. Cleaned USDA and CDC datasets were imported from the processed/ directory and merged using the validated 5-digit FIPS codes as the join key. An inner merge was performed to retain only counties present in both datasets. After merging, Richard identified overlapping and redundant columns and resolved them in OpenRefine by standardizing names and removing duplicates. The resulting schema includes:
 - FIPS
 
@@ -27,10 +27,10 @@ Richard conducted the integration workflow in Google Colab using Pandas. Cleaned
 
 - Obesity_rate (CDC)
 
-## Task 4: Ethics, Privacy, and Licensing Review (Completed Together):
+### Task 4: Ethics, Privacy, and Licensing Review (Completed Together):
 We reviewed the privacy, licensing, and ethical considerations. Both datasets are published by U.S. federal agencies and are in the public domain, containing only aggregated, non-identifiable information. FIPS geographic identifiers do not introduce privacy risks, and no external enrichment sources were added. Our original ethical guidelines from the Project Plan remain fully valid.
 
-## Task 5: Repository Structure & Documentation (Completed):
+### Task 5: Repository Structure & Documentation (Completed):
 The repository has been reorganized to emphasize transparency and reproducibility. It now includes a structured data directory with placeholders for raw files and processed outputs, detailed cleaning documentation, modular notebooks for acquisition, cleaning, and integration, and a script for automated data downloading. All project planning and reporting documents (ProjectPlan.md, StatusReport.md) are included in the main directory.
 
 # 3. Updated Timeline & Milestone Status:

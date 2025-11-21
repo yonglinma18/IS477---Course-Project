@@ -7,6 +7,7 @@
 ## USDA Food Environment Atlas (Raw Data Stored Locally)
 
 **Source:** [https://www.ers.usda.gov/data-products/food-environment-atlas/ ](https://www.ers.usda.gov/data-products/food-environment-atlas/data-access-and-documentation-downloads) 
+**Raw Data:** https://ers.usda.gov/sites/default/files/_laserfiche/DataFiles/113063/2025-food-environment-atlas-data.zip
 **File format:** CSV  
 **Download date:** 2025-11-16  
 
@@ -58,8 +59,24 @@ Saved as: `data/processed/foodatlas_cleaned.csv`
 ## CDC PLACES – County Health Indicators (Raw Data Stored Locally)
 
 **Source:** [https://data.cdc.gov/  ](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb/about_data)
+**Raw Data:**https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
 **File format:** CSV  
 **Download date:** 2025-11-16  
+
+### Note on CDC Download Link
+
+The CDC PLACES dataset used in this project exceeds GitHub’s 25–50MB file-size upload limit. 
+Because the full raw dataset cannot be stored directly in our repository, we provided a 
+publicly accessible University of Illinois Box download link:
+
+https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
+
+This Box link contains the exact raw CSV file we downloaded from the original CDC portal 
+(https://data.cdc.gov/). The file in Box is unmodified and is shared only to support data 
+reproducibility for this course.  
+
+The SHA-256 checksum generated in our acquisition notebook verifies that the Box-hosted file 
+matches the original CDC source file.
 
 ### Description  
 Model-based estimates for chronic disease and health outcomes at the county level.  
@@ -109,7 +126,7 @@ Verified that all values were:
 Saved as: `data/processed/cdc_cleaned.csv`
 
 ### Notes  
-- The full CDC dataset is ~60MB → too large for GitHub  
+- The full CDC dataset is ~60MB: too large for GitHub  
 - The full raw dataset is stored locally  
 - Only cleaned, compact subsets are uploaded
 

@@ -72,10 +72,6 @@ All integration was performed using:
 - Google Colab (Pandas)
 - OpenRefine (filtering, cleaning, transformation)
 
-Per project instructions:
-
-> Scripts for loading data into an RDBMS are only required if an RDBMS is used.
-
 Therefore, this step is **not applicable** to our workflow.
 
 # Reproducibility

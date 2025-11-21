@@ -1,119 +1,102 @@
-IS477 Final Project – Fast-Food Density & Obesity Analysis
-University of Illinois Urbana-Champaign
+# IS477 Final Project – Fast-Food Density & Obesity Analysis
+University of Illinois Urbana-Champaign  
 Fall 2025 – Data Curation & Management
-📘 Project Overview
 
-This project explores the relationship between fast-food restaurant density and adult obesity rates across U.S. counties.
+# Project Overview
 
-We use two authoritative, publicly available federal datasets:
+This project explores the relationship between **fast-food restaurant density** and **adult obesity rates** across U.S. counties.
 
-USDA Food Environment Atlas (2025 Release)
+We use two publicly available datasets:
 
-CDC PLACES – Local Data for Better Health (2024 Release)
+- USDA Food Environment Atlas (2025 Release)
+- CDC PLACES – Local Data for Better Health (2024 Release)
 
-All data acquisition, cleaning, transformation, and merging were performed using Google Colab (Pandas) and OpenRefine, following reproducible and transparent curation procedures.
+All acquisition, cleaning, and integration were completed using **Google Colab** and **OpenRefine**.
 
-📦 Storage & Organization
+# Storage and Organization
 
-This project follows a structured, reproducible, and transparent data-management workflow.
-All raw data, processed data, notebooks, scripts, and documentation are organized in a clear directory structure.
+This project follows a clear and reproducible directory structure.  
+Raw data, processed data, notebooks, and scripts are organized in dedicated folders.
 
-We did not use a relational database (RDBMS).
-CSV-level processing with OpenRefine + Python was sufficient for this project.
+A relational database (RDBMS) was **not used**.  
+CSV and OpenRefine workflows were sufficient for this project.
 
-📁 Filesystem Structure
+## Filesystem Structure
 IS477---Course-Project/
 │
 ├── data/
-│   ├── raw/                     # Raw datasets (not uploaded due to size limits; stored locally)
-│   │   └── README.md            # Raw data notes, source URLs, download dates
-│   │
-│   ├── processed/               # Cleaned, OpenRefine-processed datasets
-│   │   ├── foodatlas_clean.csv
-│   │   └── cdc_cleaned.csv
-│   │
-│   └── README.md                # Detailed cleaning notes (already completed)
+│ ├── raw/ # Raw datasets (not uploaded; stored locally)
+│ │ └── README.md # Data source notes
+│ │
+│ ├── processed/ # Cleaned datasets (uploaded)
+│ │ ├── foodatlas_clean.csv
+│ │ └── cdc_cleaned.csv
+│ │
+│ └── README.md # Cleaning steps and documentation
 │
-├── notebooks/                   # Google Colab notebooks
-│   ├── acquisition.ipynb        # Programmatic acquisition from USDA + CDC
-│   ├── cleaning.ipynb           # Optional additional data cleaning
-│   ├── integration.ipynb        # Merging USDA + CDC datasets
-│   └── analysis.ipynb           # Visualization + statistical analysis
+├── notebooks/
+│ ├── acquisition.ipynb
+│ ├── cleaning.ipynb
+│ ├── integration.ipynb
+│ └── analysis.ipynb
 │
 ├── scripts/
-│   └── acquire_data.py          # Python script for automated downloading
+│ └── acquire_data.py
 │
 ├── results/
-│   ├── figures/                 # Visualizations created in analysis
-│   └── tables/                  # Summary tables (optional)
+│ ├── figures/
+│ └── tables/
 │
-└── ProjectPlan.md               # Project plan from Phase 1
+└── ProjectPlan.md
 
-📝 Naming Conventions
-Raw data (not stored in GitHub)
 
-Because USDA + CDC datasets exceed GitHub’s 25–50MB file-size limit, they are stored locally or in Box but documented in data/raw/README.md.
+## Naming Conventions
 
-Examples of raw filenames:
+### Raw Data (not uploaded to GitHub)
+Examples:
+- usda_food_atlas_2025.zip
+- cdc_places_2024.csv
 
-usda_food_atlas_2025.zip
-
-cdc_places_2024.csv
-
-Processed data
-
-Stored in: data/processed/
+### Processed Data
+Stored in: `data/processed/`
 
 Naming pattern:
 <dataset>_clean.csv
 
+
 Examples:
+- foodatlas_clean.csv
+- cdc_cleaned.csv
 
-foodatlas_clean.csv
+### Notebooks
+- acquisition.ipynb
+- cleaning.ipynb
+- integration.ipynb
+- analysis.ipynb
 
-cdc_cleaned.csv
+### Scripts
+- acquire_data.py
 
-Scripts
+All filenames follow lowercase snake_case.
 
-acquire_data.py → programmatic dataset download
+# Database Usage
 
-Notebooks
-
-Each notebook maps to one stage of the data lifecycle:
-
-acquisition.ipynb
-
-cleaning.ipynb
-
-integration.ipynb
-
-analysis.ipynb
-
-All filenames follow lowercase snake_case for clarity.
-
-🗄️ Database Usage
-
-A relational database (PostgreSQL / MySQL / SQLite) was not used in this project.
+A relational database (PostgreSQL/MySQL/SQLite) was **not used**.  
 All integration was performed using:
 
-Google Colab (Pandas)
-
-OpenRefine (facet-based cleaning & transformation)
+- Google Colab (Pandas)
+- OpenRefine (filtering, cleaning, transformation)
 
 Per project instructions:
 
-Scripts for loading data into an RDBMS are required only if an RDBMS is used.
+> Scripts for loading data into an RDBMS are only required if an RDBMS is used.
 
-Thus, this step is not applicable to our workflow.
+Therefore, this step is **not applicable** to our workflow.
 
-🔄 Reproducibility
+# Reproducibility
 
-Raw data can be re-downloaded using our acquisition notebook (notebooks/acquisition.ipynb) or Python script (scripts/acquire_data.py).
-
-All OpenRefine cleaning steps are fully documented in data/README.md.
-
-Cleaned datasets are provided in data/processed/ for easy analysis.
-
-Processed data can be regenerated using the documented facet filters and transformations applied to the raw files.
-
-The entire workflow—from acquisition to integration—is repeatable on any system using Colab + OpenRefine.
+- Raw datasets can be re-downloaded using the acquisition notebook or script.
+- All cleaning steps are documented in `data/README.md`.
+- Cleaned datasets (`data/processed/`) are ready for analysis.
+- Processed datasets can be regenerated using the documented OpenRefine steps.
+- The entire workflow (acquisition → cleaning → integration → analysis) is reproducible using Colab + OpenRefine.

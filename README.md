@@ -64,6 +64,11 @@ Examples:
 
 All filenames follow lowercase snake_case.
 
+# Extraction and Enrichment
+- This step is not applicable to our project.
+- Both USDA Food Environment Atlas and CDC PLACES datasets are already structured, tabular CSV files provided by federal agencies.
+- No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment (e.g., API lookups, census augmentation, geocoding, or metadata retrieval) was required.
+
 # Database Usage
 
 A relational database (PostgreSQL/MySQL/SQLite) was **not used**.  

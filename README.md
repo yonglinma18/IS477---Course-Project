@@ -69,6 +69,32 @@ All filenames follow lowercase snake_case.
 - Both USDA Food Environment Atlas and CDC PLACES datasets are already structured, tabular CSV files provided by federal agencies.
 - No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment (e.g., API lookups, census augmentation, geocoding, or metadata retrieval) was required.
 
+# Data Integration
+
+Dataset integration was performed in Google Colab using **Pandas**, after both datasets were independently cleaned in OpenRefine.
+
+## Integration Key
+Both datasets use **FIPS** (5-digit county code) as the unique identifier.  
+All FIPS values were validated during the cleaning stage to ensure consistent formatting across sources.
+
+## Integration Steps
+1. Loaded cleaned USDA and CDC datasets from `data/processed/`.
+2. Verified that all FIPS codes were valid 5-digit strings.
+3. Performed an **inner merge** on the shared key: `FIPS`.
+4. Ensured no duplicate counties remained after merging.
+5. Exported the final integrated dataset as `merged_usda_cdc.csv`.
+
+## Resulting Integrated Schema
+- `FIPS` — County identifier  
+- `State`  
+- `County`  
+- `fast_food_density` (USDA)  
+- `obesity_rate` (CDC)
+
+## Script Location
+The full integration script is available in:
+notebooks/integration.ipynb
+
 # Database Usage
 
 A relational database (PostgreSQL/MySQL/SQLite) was **not used**.  

@@ -1,5 +1,7 @@
 # IS477 Final Project - Fast-Food Density & Obesity Analysis
-University of Illinois Urbana-Champaign - Fall 2025 - Data Curation & Management
+Contributors:
+- Yonglin Ma 
+- Richard(Ting Yu) Wu 
 
 # Project Overview
 This project explores the relationship between **fast-food restaurant density** and **adult obesity rates** across U.S. counties.

@@ -1,4 +1,3 @@
-# -------------------------
 # Snakemake Workflow
 # Automates acquisition + integration + analysis.
 # Cleaning steps are manually performed in OpenRefine (documented in README).

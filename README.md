@@ -49,8 +49,8 @@ What the Scripts Do - Each acquisition script performs the following steps:
 - Compute SHA-256 checksums: After downloading, each script generates the SHA-256 hash of the raw file. This allows anyone to verify that their downloaded copy matches the original dataset used in this project.
 - Print checksum values for verification: The printed SHA-256 digest ensures transparent and reproducible data acquisition.
   
-How to Reproduce the Acquisition Step
-There are two supported ways to reproduce the acquisition process:
+How to Reproduce the Acquisition Step - There are two supported ways to reproduce the acquisition process:
+
 **Option A: Run through Snakemake**
 This workflow automatically executes the acquisition scripts: **snakemake --cores 1**
 
@@ -80,7 +80,6 @@ Checksum values printed to the console can be compared against the values listed
 - All acquisition is fully reproducible using the scripts above.
 - The CDC dataset used in this project reflects the version downloaded on 2025-11-16, verified by SHA-256 checksum.
 - A Box link is provided to ensure persistent access to the exact dataset version used.
-
 
 ## Checksum Verification
 To verify file integrity, each acquisition script computes a SHA-256 hash of the downloaded file.

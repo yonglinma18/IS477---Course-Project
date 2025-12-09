@@ -85,8 +85,8 @@ Checksum values printed to the console can be compared against the values listed
 ## Checksum Verification
 To verify file integrity, each acquisition script computes a SHA-256 hash of the downloaded file.
 
-- USDA SHA-256: 
-- CDC SHA-256: 
+- USDA SHA-256: 99750f549a3dd84222934dae77767724968a86b36f2cf15b3985bb6f0e863b8d
+- CDC SHA-256: 710646e805aa7af92276ac9627b63c78532c81d799cb5db9ba647c015e24177c
 
 Anyone reproducing this work can compare their own downloaded files against these hashes to confirm that the data matches exactly.
 

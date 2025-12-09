@@ -15,7 +15,7 @@ All acquisition, cleaning, and integration were completed using **Google Colab**
 
 # Data Collection and Acquisition
 
-Because the full raw datasets exceed GitHub’s 25-50MB file-size limit, raw files are not stored in this repository.
+Because the full raw datasets exceed GitHub’s file-size limit, raw files are not stored in this repository.
 Instead, acquisition scripts and documentation are provided to ensure full reproducibility.
 
 This project uses two publicly available datasets:
@@ -34,7 +34,7 @@ This project uses two publicly available datasets:
 - Download date: 2025-11-16
 - Description: Model-based estimates for chronic disease and health outcomes at the county level.
 - Note on CDC Download Link: The CDC PLACES dataset website was updated after our download date. This project uses the version downloaded on November 16, 2025, and the exact version can be verified using the provided SHA-256 checksum and acquisition script.
-- Note on CDC Download Link: The CDC PLACES dataset used in this project exceeds GitHub’s 25–50MB file-size upload limit. Because the full raw dataset cannot be stored directly in our repository, we provided a publicly accessible University of Illinois Box download link: **https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s** This Box link contains the exact raw CSV file we downloaded from the original CDC portal (https://data.cdc.gov/). The file in Box is unmodified and is shared only to support data reproducibility for this course. The SHA-256 checksum generated in our acquisition notebook verifies that the Box-hosted file matches the original CDC source file.
+- Note on CDC Download Link: The CDC PLACES dataset used in this project exceeds GitHub’s file-size upload limit. Because the full raw dataset cannot be stored directly in our repository, we provided a publicly accessible University of Illinois Box download link: **https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s** This Box link contains the exact raw CSV file we downloaded from the original CDC portal (https://data.cdc.gov/). The file in Box is unmodified and is shared only to support data reproducibility for this course. The SHA-256 checksum generated in our acquisition notebook verifies that the Box-hosted file matches the original CDC source file.
 
 ## Acquisition Scripts
 This project includes fully reproducible acquisition scripts that automatically download the USDA and CDC datasets and verify their integrity using SHA-256 checksums.

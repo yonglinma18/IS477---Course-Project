@@ -28,7 +28,7 @@ This project uses two publicly available datasets:
 - Description：County-level indicators related to food access, food environment, and food resources. 
 
 **CDC PLACES – Local Data for Better Health (2024 Release)**
-- Source: https://data.cdc.gov/
+- Source: [https://data.cdc.gov/](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb/about_data)
 - Raw Data:https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
 - File format: CSV
 - Download date: 2025-11-16

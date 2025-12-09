@@ -270,33 +270,73 @@ A full OpenRefine operation history (recipes) is included for reproducibility:
 These allow anyone to reproduce 100% of the cleaning steps by importing the JSON files into OpenRefine.
 
 # Data Integration
-Dataset integration was performed in Google Colab using **Pandas**, after both datasets were independently cleaned in OpenRefine.
+Dataset integration was performed in Google Colab using Pandas, after both datasets were independently cleaned in OpenRefine.
 
 ## Integration Key
-Both datasets use **FIPS** (5-digit county code) as the unique identifier.  
-All FIPS values were validated during the cleaning stage to ensure consistent formatting across sources.
+Both datasets contain a FIPS (5-digit county code) column, which uniquely identifies every U.S. county.
 
-## Integration Steps
-1. Loaded cleaned USDA and CDC datasets from `data/processed/`.
-2. Verified that all FIPS codes were valid 5-digit strings.
-3. Performed an **inner merge** on the shared key: `FIPS`.
-4. Ensured no duplicate counties remained after merging.
-5. Exported the final integrated dataset as `merged_output_cleaned.csv`.
+All FIPS values were validated during the cleaning stage in OpenRefine.
 
-## Resulting Integrated Schema
-- `FIPS` - County identifier  
-- `State`  
-- `County`  
-- `fast_food_density` (USDA)  
-- `obesity_rate` (CDC)
+FIPS was chosen as the integration key because it is:
+- standardized across federal datasets,
+- consistent across years,
+- not affected by county name changes or formatting inconsistencies.
 
-## Script Location
-The full integration script is available in:
-notebooks/integration.ipynb
+**Conceptual Model for Integration**
 
-# Database Usage
-A relational database (PostgreSQL/MySQL/SQLite) was **not used** in this project, as all integration was performed using CSV files, OpenRefine, and Pandas.  
-Therefore, this step is **not applicable** to our workflow.
+Before integration, both datasets were aligned to the following conceptual schema:
+
+Attribute -	Description - Source
+FIPS - Unique county identifier - Both
+State - State abbreviation - Both (validated to match)
+County - County name - Both (validated to match)
+fast_food_density - Fast-food restaurants per 1,000 population - USDA
+obesity_rate - Age-adjusted adult obesity prevalence - CDC
+
+This conceptual schema ensures that each county becomes a single integrated record combining food environment + health outcome.
+
+**Integration Steps (Performed in Python)**
+
+The integration was performed in notebooks/integration.ipynb using the following steps:
+
+1. Loaded cleaned datasets
+- data/clean_1/foodatlas_cleaned.csv  
+- data/clean_1/cdc_cleaned.csv
+
+2. Verified FIPS formatting
+- Ensured both FIPS columns were strings
+- Ensured they remained 5 digits after loading
+- Confirmed no duplicates within each dataset
+
+3. Performed an inner merge on FIPS
+- **merged = usda.merge(cdc, on="FIPS", how="inner")**
+- Inner join ensures only counties present in both datasets are included. This avoids mismatched or incomplete records.
+
+4. Resolved post-merge duplicate columns
+- Because both datasets contain State and County, Pandas produces: State_x, State_y & County_x, County_y
+
+These were reconciled by:
+- Verifying that State_x = State_y and County_x = County_y
+- Keeping the left dataset's values
+- Removing redundant columns: State_y, County_y
+
+5. Exported the final integrated dataset
+- Output saved as: data/merge/merged_output_cleaned.csv
+- This file was used for all downstream analysis and visualizations.
+
+**Resulting Integrated Schema**
+
+After integration and cleanup, the final dataset contains:
+- FIPS - county identifier
+- State - state abbreviation
+- County - county name
+- fast_food_density (USDA)
+- obesity_rate (CDC)
+
+This schema supports statistical analysis of relationships between food environment and obesity outcomes.
+
+**Script Location**
+- The complete integration logic is documented in: notebooks/integration.ipynb
 
 # Reproducibility
 - Raw datasets can be re-downloaded using the acquisition notebook or script.

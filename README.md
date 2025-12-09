@@ -14,32 +14,66 @@ We use two publicly available datasets:
 All acquisition, cleaning, and integration were completed using **Google Colab** and **OpenRefine**.
 
 # Data Collection and Acquisition
-Because the USDA and CDC datasets exceed GitHub’s file-size limits, only the acquisition scripts and processed outputs are included in this repository.
+This project uses fully reproducible, programmatic acquisition of both the USDA Food Environment Atlas dataset and the CDC PLACES dataset. Because the original datasets exceed GitHub’s file-size limits, only the acquisition scripts and checksums are stored in the repository, while raw files are saved locally or retrieved automatically through the workflow.
 
 ## Acquisition Scripts
-The acquisition workflow is implemented in:
-notebooks/acquisition.ipynb
+The raw datasets are downloaded using two Python scripts:
+- scripts/acquire_usda.py
+- scripts/acquire_cdc.py
 
-This notebook uses `requests` to:
-- Download the USDA ZIP file  
-- Download the CDC CSV file (via Box link)  
-- Save files into `data/raw/`  
-- Compute SHA-256 checksums to verify integrity
+These scripts:
+- Send HTTP requests to the official data sources
+- Download the raw files into data/raw/
+- Save the files with consistent names
+- Compute SHA-256 checksums for integrity validation
+  
+These acquisition scripts are executed automatically when running Snakemake:
+snakemake --cores 1
+
+or manually by executing each script:
+python scripts/acquire_usda.py
+python scripts/acquire_cdc.py
+
+The corresponding Jupyter notebooks (notebooks/acquire_usda.ipynb and notebooks/acquire_cdc.ipynb) provide a documented version of the same workflow.
+
+## Data Sources
+Both datasets originate from publicly available federal sources:
+- USDA Food Environment Atlas (2025 Release)
+https://ers.usda.gov/data-products/food-environment-atlas/
+
+CDC PLACES – Local Data for Better Health (2024 Release)
+https://www.cdc.gov/places/
+
+These URLs are embedded directly into the acquisition scripts to ensure reproducibility.
 
 ## Checksum Verification
-For reproducibility, SHA-256 checksums were generated using Python:
+To verify file integrity, each acquisition script computes a SHA-256 hash of the downloaded file.
 
-- Allows validation of downloaded files  
-- Ensures file integrity when re-running acquisition  
-- Required because raw datasets are not stored directly in GitHub
+- USDA SHA-256: 
+- CDC SHA-256: 
 
-## Storage Notes
-Processed subsets suitable for analysis are available in:
-data/processed/
+Anyone reproducing this work can compare their own downloaded files against these hashes to confirm that the data matches exactly.
 
-## Reproducibility
-Anyone can fully reproduce the acquisition process by running the notebook:
-notebooks/acquisition.ipynb
+To manually verify a file:
+
+import hashlib
+with open("filename", "rb") as f:
+    print(hashlib.sha256(f.read()).hexdigest())
+
+## Manual Reproduction
+
+If users prefer to download the datasets manually:
+- Download the USDA and CDC files from the links above
+- Place them inside the data/raw/ folder
+- Run the checksum validation code
+- Proceed to the cleaning and integration steps
+
+## Output of Acquisition Step
+After running acquisition:
+- data/raw/usda_food_atlas_2025.zip
+- data/raw/cdc_places_2024.csv
+
+These files then serve as inputs to the cleaning and integration workflows.
 
 # Storage and Organization
 This project follows a clear and reproducible directory structure.  

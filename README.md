@@ -27,10 +27,9 @@ These scripts:
 - Save the files with consistent names
 - Compute SHA-256 checksums for integrity validation
   
-These acquisition scripts are executed automatically when running Snakemake:
-snakemake --cores 1
+These acquisition scripts are executed automatically when running Snakemake: snakemake --cores 1
 
-or manually by executing each script:
+Or manually by executing each script:
 python scripts/acquire_usda.py
 python scripts/acquire_cdc.py
 
@@ -41,10 +40,8 @@ Both datasets originate from publicly available federal sources:
 - USDA Food Environment Atlas (2025 Release)
 https://ers.usda.gov/data-products/food-environment-atlas/
 
-CDC PLACES – Local Data for Better Health (2024 Release)
+- CDC PLACES – Local Data for Better Health (2024 Release)
 https://www.cdc.gov/places/
-
-These URLs are embedded directly into the acquisition scripts to ensure reproducibility.
 
 ## Checksum Verification
 To verify file integrity, each acquisition script computes a SHA-256 hash of the downloaded file.
@@ -53,12 +50,6 @@ To verify file integrity, each acquisition script computes a SHA-256 hash of the
 - CDC SHA-256: 
 
 Anyone reproducing this work can compare their own downloaded files against these hashes to confirm that the data matches exactly.
-
-To manually verify a file:
-
-import hashlib
-with open("filename", "rb") as f:
-    print(hashlib.sha256(f.read()).hexdigest())
 
 ## Manual Reproduction
 

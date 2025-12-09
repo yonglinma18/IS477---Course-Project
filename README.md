@@ -187,7 +187,7 @@ Both were cleaned independently first, then merged, followed by a second cleanin
 
 1. Imported the raw USDA CSV into OpenRefine
    
-3. Filtered to keep only fast-food restaurant density
+2. Filtered to keep only fast-food restaurant density
   - Faceted on Variable_Code
   - Selected indicator: FRTPTP020 (Fast-food restaurants per 1,000 population)
   - Removed all other indicators
@@ -197,7 +197,7 @@ Both were cleaned independently first, then merged, followed by a second cleanin
 - County
 - FIPS
 - Data_Value → renamed to fast_food_density
-- 
+  
 4. Removed non-county rows - (Project focuses on 50 U.S. states only)
 - Deleted rows where State = “DC” 
 
@@ -215,6 +215,59 @@ Both were cleaned independently first, then merged, followed by a second cleanin
 
 7. Exported cleaned USDA dataset
 - Saved as: **data/clean_1/foodatlas_cleaned.csv**
+
+**CDC Dataset – Cleaning Summary (Performed in OpenRefine)**
+
+1. Imported CDC dataset into OpenRefine
+   
+2. Filtered to keep only obesity data
+- Faceted on Measure
+- Selected: Obesity among adults
+
+3. Kept only Age-adjusted prevalence
+- Faceted on Data_Value_Type
+- Selected: Age-adjusted prevalence
+- Removed: Unadjusted prevalence & Crude prevalence
+
+4. Selected relevant columns
+- StateAbbr → renamed to State
+- LocationName → renamed to County
+- LocationID → renamed to FIPS
+- Data_Value → renamed to Obesity_Rate
+
+5. Removed non-county and aggregated rows
+- Deleted rows where: State = "US" & County not part of 50 states
+
+6. Validated FIPS codes
+- Checked text length = 5
+- Confirmed no missing or malformed codes
+
+7. Cleaned obesity rate values
+- Faceted on Obesity_Rate
+- Verified values: numeric & within 0–100% & non-blank
+
+8. Exported cleaned CDC dataset
+- Saved as: data/clean_1/cdc_cleaned.csv
+
+**Second Cleaning Step (After Merge)**
+
+After merging USDA + CDC datasets using FIPS, the merged file contained duplicate county/state
+
+Second-pass OpenRefine cleaning steps:
+- Loaded merged dataset into OpenRefine
+- Verified that State_x = State_y and County_x = County_y
+- Deleted redundant merged columns: State_y & County_y
+- Verified no duplicate FIPS values remained
+- Exported final dataset: data/merge/merged_output_cleaned.csv
+
+**OpenRefine JSON Operation History**
+
+A full OpenRefine operation history (recipes) is included for reproducibility:
+- openrefine/usda_food_cleaning.json
+- openrefine/cdc_obesity_cleaning.json
+- openrefine/merge_cleanup.json
+
+These allow anyone to reproduce 100% of the cleaning steps by importing the JSON files into OpenRefine.
 
 # Data Integration
 Dataset integration was performed in Google Colab using **Pandas**, after both datasets were independently cleaned in OpenRefine.

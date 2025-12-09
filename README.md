@@ -44,7 +44,7 @@ All acquisition logic is implemented in the following scripts:
 - scripts/acquire_cdc.py
 
 What the Scripts Do - Each acquisition script performs the following steps:
-- Send HTTP requests to download the datasets: The scripts retrieve the raw USDA ZIP file and the raw CDC CSV file directly from their official data portals (USDA ERS and CDC).
+- Send HTTP requests to download the datasets: The USDA script retrieves the raw ZIP file directly from the USDA ERS data portal. The CDC script downloads the exact raw CSV file used in this project from a publicly accessible University of Illinois Box link, which hosts the original dataset version downloaded from CDC before their website update.
 - Save the files into the project directory: **USDA → data/raw/usda_food_atlas_2025.zip** & **CDC → data/raw/cdc_places_2024.csv**
 - Compute SHA-256 checksums: After downloading, each script generates the SHA-256 hash of the raw file. This allows anyone to verify that their downloaded copy matches the original dataset used in this project.
 - Print checksum values for verification: The printed SHA-256 digest ensures transparent and reproducible data acquisition.

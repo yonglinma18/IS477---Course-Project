@@ -15,7 +15,7 @@ All acquisition, cleaning, and integration were completed using **Google Colab**
 
 # Data Collection and Acquisition
 
-Because the full raw datasets exceed GitHub’s 25–50MB file-size limit, raw files are not stored in this repository.
+Because the full raw datasets exceed GitHub’s 25-50MB file-size limit, raw files are not stored in this repository.
 Instead, acquisition scripts and documentation are provided to ensure full reproducibility.
 
 This project uses two publicly available datasets:

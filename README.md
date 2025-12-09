@@ -176,18 +176,45 @@ Scripts & Notebooks:
 - No unstructured text, HTML, XML, or JSON needed to be parsed, and no NLP-based extraction or external enrichment was required.
 
 # Data Quality and Cleaning
-All data profiling and cleaning were performed using **OpenRefine**.  
-Detailed cleaning steps for both datasets (USDA and CDC) are fully documented in:
-data/README.md
+This project performed all data profiling and cleaning using OpenRefine, with full transparency ensured by including a detailed description of all steps and the exported OpenRefine JSON operation history.
 
-Cleaning actions include:
-- Profiling with facets (numeric/text)
-- Validating FIPS codes
-- Filtering non-county or invalid records
-- Standardizing variable names and column formats
-- Exporting cleaned subsets for analysis
+Two datasets were cleaned:
+- USDA Food Environment Atlas (fast_food_density)
+- CDC PLACES (obesity_rate)
+Both were cleaned independently first, then merged, followed by a second cleaning pass to remove redundant merge columns.
 
-The complete OpenRefine operation history (JSON recipe) has also been uploaded to ensure full reproducibility.
+**USDA Dataset – Cleaning Summary (Performed in OpenRefine)**
+
+1. Imported the raw USDA CSV into OpenRefine
+   
+3. Filtered to keep only fast-food restaurant density
+  - Faceted on Variable_Code
+  - Selected indicator: FRTPTP020 (Fast-food restaurants per 1,000 population)
+  - Removed all other indicators
+
+3. Kept only relevant columns
+- State
+- County
+- FIPS
+- Data_Value → renamed to fast_food_density
+- 
+4. Removed non-county rows - (Project focuses on 50 U.S. states only)
+- Deleted rows where State = “DC” 
+
+5. Validated FIPS codes
+- Created a text facet on length(value)
+- Ensured all FIPS codes were exactly 5 digits
+- Confirmed no blank or malformed FIPS values
+
+6. Cleaned density values
+- Faceted on fast_food_density
+- Removed invalid placeholders:
+  - 9999
+  - 8888
+- Ensured all remaining values were numeric
+
+7. Exported cleaned USDA dataset
+- Saved as: **data/clean_1/foodatlas_cleaned.csv**
 
 # Data Integration
 Dataset integration was performed in Google Colab using **Pandas**, after both datasets were independently cleaned in OpenRefine.

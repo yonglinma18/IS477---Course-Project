@@ -99,6 +99,8 @@ All data integration and analysis steps were performed using Pandas and OpenRefi
 
 ## Folder Structure
 IS477---Course-Project/
+
+-contribution # Group members' contribution
 - data/
   - raw/           # Raw datasets (downloaded via scripts; not stored in GitHub)
     - usda_food_atlas_2025.zip

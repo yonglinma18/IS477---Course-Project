@@ -91,11 +91,11 @@ Anyone reproducing this work can compare their own downloaded files against thes
 
 
 # Storage and Organization
-This project follows a clear and reproducible directory structure.  
-Raw data, processed data, notebooks, and scripts are organized in dedicated folders.
+This project follows a clear and reproducible directory structure.
+All data, scripts, notebooks, and intermediate results are organized into dedicated folders to support transparency, reproducibility, and ease of navigation.
 
-A relational database (RDBMS) was **not used**.  
-CSV and OpenRefine workflows were sufficient for this project.
+Because the project uses CSV files, OpenRefine, and Python-based workflows, a relational database (RDBMS) was not required.
+All data integration and analysis steps were performed using Pandas and OpenRefine, and therefore no SQL loading scripts are included.
 
 ## Folder Structure
 IS477---Course-Project/

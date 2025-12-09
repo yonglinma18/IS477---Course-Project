@@ -37,29 +37,51 @@ This project uses two publicly available datasets:
 - Note on CDC Download Link: The CDC PLACES dataset used in this project exceeds GitHub’s 25–50MB file-size upload limit. Because the full raw dataset cannot be stored directly in our repository, we provided a publicly accessible University of Illinois Box download link: **https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s** This Box link contains the exact raw CSV file we downloaded from the original CDC portal (https://data.cdc.gov/). The file in Box is unmodified and is shared only to support data reproducibility for this course. The SHA-256 checksum generated in our acquisition notebook verifies that the Box-hosted file matches the original CDC source file.
 
 ## Acquisition Scripts
-The raw datasets are downloaded using two Python scripts:
+This project includes fully reproducible acquisition scripts that automatically download the USDA and CDC datasets and verify their integrity using SHA-256 checksums.
+
+All acquisition logic is implemented in the following scripts:
 - scripts/acquire_usda.py
 - scripts/acquire_cdc.py
 
-These scripts:
-- Send HTTP requests to the official data sources
-- Download the raw files into data/raw/
-- Save the files with consistent names
-- Compute SHA-256 checksums for integrity validation
+What the Scripts Do：
+Each acquisition script performs the following steps:
+- Send HTTP requests to download the datasets: The scripts retrieve the raw USDA ZIP file and the raw CDC CSV file directly from their official data portals (USDA ERS and CDC).
+- Save the files into the project directory: **USDA → data/raw/usda_food_atlas_2025.zip** & **CDC → data/raw/cdc_places_2024.csv**
+- Compute SHA-256 checksums: After downloading, each script generates the SHA-256 hash of the raw file. This allows anyone to verify that their downloaded copy matches the original dataset used in this project.
+- Print checksum values for verification: The printed SHA-256 digest ensures transparent and reproducible data acquisition.
   
-These acquisition scripts are executed automatically when running Snakemake: **snakemake --cores 1**
+How to Reproduce the Acquisition Step
+There are two supported ways to reproduce the acquisition process:
 
-Or manually by executing each script: **python scripts/acquire_usda.py** & **python scripts/acquire_cdc.py**
+**Option A: Run through Snakemake**
+This workflow automatically executes the acquisition scripts: **snakemake --cores 1**
 
-The corresponding Jupyter notebooks (**notebooks/acquire_usda.ipynb** and **notebooks/acquire_cdc.ipynb**) provide a documented version of the same workflow.
+Snakemake will run:
+- scripts/acquire_usda.py
+- scripts/acquire_cdc.py
+  
+and download fresh copies of the datasets into data/raw/.
 
-## Data Sources
-Both datasets originate from publicly available federal sources:
-- USDA Food Environment Atlas (2025 Release)
-https://ers.usda.gov/data-products/food-environment-atlas/
+**Option B: Run the scripts manually**
 
-- CDC PLACES – Local Data for Better Health (2024 Release)
-https://www.cdc.gov/places/
+From the project root directory, run:
+- python scripts/acquire_usda.py
+- python scripts/acquire_cdc.py
+
+This will re-download both datasets and regenerate their SHA-256 checksums.
+
+Output of Acquisition Step:
+After running acquisition, the following files will appear:
+- data/raw/usda_food_atlas_2025.zip
+- data/raw/cdc_places_2024.csv
+Checksum values printed to the console can be compared against the values listed earlier in this README to ensure file integrity.
+
+**Notes**
+Because both datasets exceed GitHub’s 25–50MB file-size limit, raw data are not stored in the repository.
+All acquisition is fully reproducible using the scripts above.
+The CDC dataset used in this project reflects the version downloaded on 2025-11-16, verified by SHA-256 checksum.
+A Box link is provided to ensure persistent access to the exact dataset version used.
+
 
 ## Checksum Verification
 To verify file integrity, each acquisition script computes a SHA-256 hash of the downloaded file.
@@ -69,20 +91,6 @@ To verify file integrity, each acquisition script computes a SHA-256 hash of the
 
 Anyone reproducing this work can compare their own downloaded files against these hashes to confirm that the data matches exactly.
 
-## Manual Reproduction
-
-If users prefer to download the datasets manually:
-- Download the USDA and CDC files from the links above
-- Place them inside the data/raw/ folder
-- Run the checksum validation code
-- Proceed to the cleaning and integration steps
-
-## Output of Acquisition Step
-After running acquisition:
-- data/raw/usda_food_atlas_2025.zip
-- data/raw/cdc_places_2024.csv
-
-These files then serve as inputs to the cleaning and integration workflows.
 
 # Storage and Organization
 This project follows a clear and reproducible directory structure.  

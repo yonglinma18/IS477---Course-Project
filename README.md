@@ -146,8 +146,8 @@ IS477---Course-Project/
 To ensure clarity and consistency, this project follows a uniform naming scheme:
 
 Dataset Naming:
-- *_raw.* are original, unmodified datasets.
-- *_clean.csv are datasets cleaned in OpenRefine stage 1.
+- _raw. are original, unmodified datasets.
+- _clean.csv are datasets cleaned in OpenRefine stage 1.
 - merged_output.csv is the initial Pandas merge output.
 - merged_output_cleaned.csv is the final cleaned dataset used for analysis.
 - Cleaning folders are versioned (clean_1, clean_2) to clearly separate stages.

@@ -100,18 +100,44 @@ All data integration and analysis steps were performed using Pandas and OpenRefi
 ## Folder Structure
 IS477---Course-Project/
 - data/
-  - raw/                     # Raw datasets (not uploaded; stored locally)
-  - processed/               # Cleaned datasets (uploaded)
-    - foodatlas_clean.csv
+  - raw/           # Raw datasets (downloaded via scripts; not stored in GitHub)
+    - usda_food_atlas_2025.zip
+    - cdc_places_2024.csv                 
+  - clean_1/       # First-stage cleaned datasets (OpenRefine)
     - cdc_cleaned.csv
-  - README.md                # Data source notes + cleaning documentation
-- README.md
+    - foodatlas_clean.csv
+  - merge/         # Intermediate merged dataset (before second cleaning)
+    -merged_outpuet.csv
+  - clean_2/       # Final cleaned merged dataset used for analysis
+    - merged_output_cleaned.csv
+-final project submission  # Final written project report
 - notebooks/
-  - acquisition.ipynb
-  - integration.ipynb
+  - acquire_cdc.ipynb
+  - acquire_usda.ipynb
+  - acquisition_demo.ipynb
+  - analysis.ipynb
+  - cleaning.ipynb
+  - integration.ipynb   # Initial merge and inspection
+- openrefine/     # OpenRefine operation histories (JSON “recipes”)
+  - cdc-history.json
+  - merged_output_cleaned.json
+  - usda-foodatlas-history.json
+- report/    # Previous written project report
+  - ProjectPlan.md
+  - StatusReport.md
+- results & figures/  # Visualizations and computed results
+  - correlation_result.txt
+  - obesity_fastfood.png
+  - obesity_fastfood_regression_line.png
 - scripts/
-  - acquire_data.py          
-- ProjectPlan.md
+  - acquire_cdc.py
+  - acquire_usda.py
+  - acquisition_demo.py
+  - analysis.py
+  - integration.py
+- Snakefile                # Automation workflow for acquisition → merge → analysis
+- run_all.sh               # One-click reproducibility script (executes Snakemake)
+- README.md                # Main project documentation
 
 ## Naming Conventions
 

@@ -141,30 +141,32 @@ IS477---Course-Project/
 - README.md                # Main project documentation
 
 ## Naming Conventions
+To ensure clarity and consistency, this project follows a uniform naming scheme:
 
-### Raw Data (not uploaded to GitHub due to upload size limits)
-Examples:
-- usda_food_atlas_2025.zip
-- cdc_places_2024.csv
+Dataset Naming:
+- *_raw.* are original, unmodified datasets.
+- *_clean.csv are datasets cleaned in OpenRefine stage 1.
+- merged_output.csv is the initial Pandas merge output.
+- merged_output_cleaned.csv is the final cleaned dataset used for analysis.
+- Cleaning folders are versioned (clean_1, clean_2) to clearly separate stages.
 
-### Processed Data
-Stored in: `data/processed/`
+Folders:
+- raw/ contains original downloaded datasets (not pushed to GitHub due to size limits).
+- clean_1/ and clean_2/ contain cleaned subsets ready for integration/analysis.
+- merge/ contains intermediate results between cleaning steps.
+- openrefine/ stores JSON history files for full reproducibility.
+- results & figures/ contains outputs produced by analysis scripts.
 
-Naming pattern:
-<dataset>_clean.csv
-
-Examples:
-- foodatlas_clean.csv
-- cdc_cleaned.csv
-
-### Notebooks
-- acquisition.ipynb
-- integration.ipynb
-
-### Scripts
-- acquire_data.py
-
-All filenames follow lowercase snake_case.
+Scripts & Notebooks:
+- All Python scripts use lowercase_snake_case naming.
+- Notebooks are stored separately from scripts to distinguish exploratory work from production workflow.
+  
+**RDBMS Usage**
+- A relational database (PostgreSQL/MySQL/SQLite) was not used in this project because:
+- Both datasets are already provided as structured CSV files.
+- No large-scale relational joins or query processing were required.
+- All integration was performed using Pandas after OpenRefine cleaning.
+- The entire workflow remains fully reproducible without a database layer.
 
 # Extraction and Enrichment
 - This step is not applicable to our project.

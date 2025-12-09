@@ -14,7 +14,28 @@ We use two publicly available datasets:
 All acquisition, cleaning, and integration were completed using **Google Colab** and **OpenRefine**.
 
 # Data Collection and Acquisition
-This project uses fully reproducible, programmatic acquisition of both the USDA Food Environment Atlas dataset and the CDC PLACES dataset. Because the original datasets exceed GitHub’s file-size limits, only the acquisition scripts and checksums are stored in the repository, while raw files are saved locally or retrieved automatically through the workflow.
+
+Because the full raw datasets exceed GitHub’s 25–50MB file-size limit, raw files are not stored in this repository.
+Instead, acquisition scripts and documentation are provided to ensure full reproducibility.
+
+This project uses two publicly available datasets:
+
+USDA Food Environment Atlas (2025 Release)
+- Source: https://www.ers.usda.gov/data-products/food-environment-atlas/ 
+- Raw Data: https://ers.usda.gov/sites/default/files/_laserfiche/DataFiles/113063/2025-food-environment-atlas-data.zip
+- File format: CSV
+- Download date: 2025-11-16
+- Description：County-level indicators related to food access, food environment, and food resources. 
+
+CDC PLACES – Local Data for Better Health (2024 Release)
+- Source: https://data.cdc.gov/
+- Raw Data:https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
+- File format: CSV
+- Download date: 2025-11-16
+- Description: Model-based estimates for chronic disease and health outcomes at the county level.
+- Note on CDC Download Link
+  -The CDC PLACES dataset website was updated after our download date. This project uses the version downloaded on November 16, 2025, and the exact version can be verified using the provided SHA-256 checksum and acquisition script.
+  -The CDC PLACES dataset used in this project exceeds GitHub’s 25–50MB file-size upload limit. Because the full raw dataset cannot be stored directly in our repository, we provided a publicly accessible University of Illinois Box download link: **https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s** This Box link contains the exact raw CSV file we downloaded from the original CDC portal (https://data.cdc.gov/). The file in Box is unmodified and is shared only to support data reproducibility for this course. The SHA-256 checksum generated in our acquisition notebook verifies that the Box-hosted file matches the original CDC source file.
 
 ## Acquisition Scripts
 The raw datasets are downloaded using two Python scripts:

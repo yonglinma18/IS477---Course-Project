@@ -27,7 +27,7 @@ This project uses two publicly available datasets:
 - Download date: 2025-11-16
 - Description：County-level indicators related to food access, food environment, and food resources. 
 
-**CDC PLACES – Local Data for Better Health (2024 Release)**
+**CDC PLACES - Local Data for Better Health (2024 Release)**
 - Source: [https://data.cdc.gov/](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb/about_data)
 - Raw Data:https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
 - File format: CSV
@@ -76,7 +76,7 @@ After running acquisition, the following files will appear:
 Checksum values printed to the console can be compared against the values listed earlier in this README to ensure file integrity.
 
 **Notes**
-- Because both datasets exceed GitHub’s 25–50MB file-size limit, raw data are not stored in the repository.
+- Because both datasets exceed GitHub’s 25-50MB file-size limit, raw data are not stored in the repository.
 - All acquisition is fully reproducible using the scripts above.
 - The CDC dataset used in this project reflects the version downloaded on 2025-11-16, verified by SHA-256 checksum.
 - A Box link is provided to ensure persistent access to the exact dataset version used.

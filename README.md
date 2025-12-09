@@ -107,11 +107,11 @@ IS477---Course-Project/
     - cdc_cleaned.csv
     - foodatlas_clean.csv
   - merge/         # Intermediate merged dataset (before second cleaning)
-    -merged_outpuet.csv
+    - merged_outpuet.csv
   - clean_2/       # Final cleaned merged dataset used for analysis
     
     - merged_output_cleaned.csv
--final project submission  # Final written project report
+- final project submission  # Final written project report
 - notebooks/
   - acquire_cdc.ipynb
   - acquire_usda.ipynb

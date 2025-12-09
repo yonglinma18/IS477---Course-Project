@@ -43,8 +43,7 @@ All acquisition logic is implemented in the following scripts:
 - scripts/acquire_usda.py
 - scripts/acquire_cdc.py
 
-What the Scripts Do：
-Each acquisition script performs the following steps:
+What the Scripts Do - Each acquisition script performs the following steps:
 - Send HTTP requests to download the datasets: The scripts retrieve the raw USDA ZIP file and the raw CDC CSV file directly from their official data portals (USDA ERS and CDC).
 - Save the files into the project directory: **USDA → data/raw/usda_food_atlas_2025.zip** & **CDC → data/raw/cdc_places_2024.csv**
 - Compute SHA-256 checksums: After downloading, each script generates the SHA-256 hash of the raw file. This allows anyone to verify that their downloaded copy matches the original dataset used in this project.
@@ -52,7 +51,6 @@ Each acquisition script performs the following steps:
   
 How to Reproduce the Acquisition Step
 There are two supported ways to reproduce the acquisition process:
-
 **Option A: Run through Snakemake**
 This workflow automatically executes the acquisition scripts: **snakemake --cores 1**
 
@@ -74,13 +72,14 @@ Output of Acquisition Step:
 After running acquisition, the following files will appear:
 - data/raw/usda_food_atlas_2025.zip
 - data/raw/cdc_places_2024.csv
+  
 Checksum values printed to the console can be compared against the values listed earlier in this README to ensure file integrity.
 
 **Notes**
-Because both datasets exceed GitHub’s 25–50MB file-size limit, raw data are not stored in the repository.
-All acquisition is fully reproducible using the scripts above.
-The CDC dataset used in this project reflects the version downloaded on 2025-11-16, verified by SHA-256 checksum.
-A Box link is provided to ensure persistent access to the exact dataset version used.
+- Because both datasets exceed GitHub’s 25–50MB file-size limit, raw data are not stored in the repository.
+- All acquisition is fully reproducible using the scripts above.
+- The CDC dataset used in this project reflects the version downloaded on 2025-11-16, verified by SHA-256 checksum.
+- A Box link is provided to ensure persistent access to the exact dataset version used.
 
 
 ## Checksum Verification

@@ -27,13 +27,11 @@ These scripts:
 - Save the files with consistent names
 - Compute SHA-256 checksums for integrity validation
   
-These acquisition scripts are executed automatically when running Snakemake: snakemake --cores 1
+These acquisition scripts are executed automatically when running Snakemake: **snakemake --cores 1**
 
-Or manually by executing each script:
-python scripts/acquire_usda.py
-python scripts/acquire_cdc.py
+Or manually by executing each script: **python scripts/acquire_usda.py** & **python scripts/acquire_cdc.py**
 
-The corresponding Jupyter notebooks (notebooks/acquire_usda.ipynb and notebooks/acquire_cdc.ipynb) provide a documented version of the same workflow.
+The corresponding Jupyter notebooks (**notebooks/acquire_usda.ipynb** and **notebooks/acquire_cdc.ipynb**) provide a documented version of the same workflow.
 
 ## Data Sources
 Both datasets originate from publicly available federal sources:

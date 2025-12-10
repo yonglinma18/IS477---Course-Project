@@ -28,7 +28,7 @@ This project uses two publicly available datasets:
 - Description：County-level indicators related to food access, food environment, and food resources. 
 
 **CDC PLACES - Local Data for Better Health (2024 Release)**
-- Source: [https://data.cdc.gov/](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb/about_data)
+- Source: https://www.cdc.gov/nccdphp/dph/
 - Raw Data:https://uofi.box.com/shared/static/kyr7iscrhy6943ictwt7voadier5mf7s
 - File format: CSV
 - Download date: 2025-11-16
@@ -393,22 +393,98 @@ This command invokes Snakemake, which automatically runs the following steps in 
 - Integrate cleaned datasets (scripts/integration.py)
 - Generate visualizations and correlation results (scripts/analysis.py)
 
-Note: Since all the cleaing steps are preformed in openrefine, we stored all the cleaning hsitory in openrefine/ for recreate
-
 All outputs will be saved to:
 - data/raw/
 - data/merge/
 - results & figures/
 
+**Important Note on the Cleaning Step (OpenRefine)**
+
+The cleaning step is not automated inside Snakemake, because both datasets required interactive transformations in OpenRefine, such as facet filtering, placeholder removal, FIPS validation, and column renaming.
+
+1. However, the cleaning step remains fully reproducible. All OpenRefine operation histories (JSON recipes) are included:
+- openrefine/usda-foodatlas-history.json
+- openrefine/cdc-history.json
+- openrefine/merged_output_cleaned.json
+
+Anyone can reproduce the cleaning by loading the raw dataset into OpenRefine and applying the JSON recipe 
+
+2. Snakemake is designed to start after cleaning.
+Cleaning happens once outside the workflow, and Snakemake begins at integration using the cleaned files in data/clean_1/ and data/clean_2/
+
+3. Cleaned outputs are versioned and stored
+- data/clean_1/foodatlas_clean.csv
+- data/clean_1/cdc_cleaned.csv
+- data/clean_2/merged_output_cleaned.csv
+
+Thus, although OpenRefine requires manual interaction, the full cleaning workflow is transparent, well-documented, and fully reproducible.
+
 **Option B: Run Notebook Scripts Manually** 
 
-Alternatively, each notebook or Python script may be executed individually:
+Alternatively, instead of using Snakemake, each notebook or Python script may be
+executed individually in the following order:
 - notebooks/acquire_cdc.ipynb
 - notebooks/acquire_usda.ipynb
+- openrefine/cdc-history.json
+- openrefine/foodatlas-history.json
 - notebooks/integration.ipynb
+- usda-foodatlas-history.json
 - notebooks/analysis.ipynb
-- 
-This produces the same final results.
+  
+This produces the same final merged dataset and visualizations as the automated workflow.
 
-Note: Since all the cleaing steps are preformed in openrefine, we stored all the cleaning hsitory in openrefine/ for recreate
+## Data Access & Box Storage Requirements
 
+Output & Raw Data Folder in Box
+**https://uofi.box.com/s/0q80kvk5cen4nqxyh6vimmoknd11z1ul** 
+
+This folder contains:
+- Raw USDA ZIP file
+- Raw CDC CSV (original version from 2025-11-16)
+- cdc_cleaned.csv
+- foodatlas_clean.csv
+- merged_output.csv
+- merged_output_cleaned.csv
+
+Where to Place These Files
+
+- data/raw/  → USDA & CDC raw files  
+- data/clean_1/ → cdc_cleaned.csv & foodatlas_clean.csv
+- data/merge/ → merged_output.csv
+- data/clean_2/ → merged_output_cleaned.csv
+
+**Software Dependencies**
+
+This project uses a minimal set of Python dependencies required to reproduce the acquisition, integration, and analysis workflows. All dependencies are listed in the requirements.txt file in the project root.
+
+To recreate the environment, run: pip install -r requirements.txt
+
+These packages were used for data acquisition (requests), cleaning and integration (pandas, numpy), visualization (matplotlib), and workflow automation (snakemake).
+
+**Data Licenses**
+
+This project uses two publicly available U.S. federal datasets. All federal data used in this project is in the Public Domain, in accordance with U.S. government open-data policy.
+
+**USDA Food Environment Atlas (2025 Release)**
+- Publisher: U.S. Department of Agriculture, Economic Research Service
+- License: Public Domain (U.S. Federal Government Data)
+- Source Link: https://www.ers.usda.gov/data-products/food-environment-atlas/
+- Citation: U.S. Department of Agriculture, Economic Research Service (USDA ERS). Food Environment Atlas Data, 2025 Release. Last Updated 7/30/2025. Accessed November 16, 2025. https://www.ers.usda.gov/data-products/food-environment-atlas/
+
+**CDC PLACES - Local Data for Better Health (2024 Release)**
+- Publisher: Centers for Disease Control and Prevention
+- License: Public Domain
+- Source Link: https://www.cdc.gov/nccdphp/dph/
+- Citation: Centers for Disease Control and Prevention (CDC), National Center for Chronic Disease Prevention and Health Promotion, Division of Population Health.
+PLACES: Local Data for Better Health, County Data, 2024 Release. Last Updated 12/23/2024. Accessed November 16, 2025. https://www.cdc.gov/nccdphp/dph/
+
+**Special Note on Data Hosting**
+
+The CDC PLACES dataset download link changed after our original acquisition date.
+Because the raw CSV exceeds GitHub’s 25–50MB limit, we stored the exact version we downloaded (verified by SHA-256 checksum) in a public Box folder, which preserves access to the exact dataset version used in this project.
+
+**Software License**
+
+All Python scripts, Jupyter notebooks, and Snakemake workflows included in this repository are released into the Public Domain under the: CC0 1.0 Universal (Public Domain Dedication)
+- The authors waives all copyright and related rights to the extent possible.
+- The software may be used, modified, or redistributed without permission or attribution.

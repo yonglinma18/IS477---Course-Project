@@ -92,8 +92,6 @@ OpenRefine Project. OpenRefine, Version 3.7. OpenRefine, https://openrefine.org.
 Google Research. Google Colaboratory. Google, https://colab.research.google.com.
 
 
-
-
 ## ***The following sections describe the artifacts included in this project and provide more detailed explanations of each component:***
 
 # Project Overview
@@ -206,6 +204,8 @@ IS477---Course-Project/
   - clean_2/       # Final cleaned merged dataset used for analysis
     
     - merged_output_cleaned.csv
+- .gitignore
+- LICENSE.txt
 - notebooks/
   - acquire_cdc.ipynb
   - acquire_usda.ipynb
@@ -231,8 +231,9 @@ IS477---Course-Project/
   - analysis.py
   - integration.py
 - Snakefile                # Automation workflow for acquisition → merge → analysis
+- requirements.txt
 - run_all.sh               # One-click reproducibility script (executes Snakemake)
-- README.md                # Main project documentation
+- README.md                # Main project documentation and final report
 
 ## Naming Conventions
 To ensure clarity and consistency, this project follows a uniform naming scheme:

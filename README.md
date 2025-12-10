@@ -1,7 +1,7 @@
 # IS477 Final Project - Fast-Food Density & Obesity Analysis
 Contributors:
-- Yonglin Ma 
-- Richard(Ting Yu) Wu
+- Yonglin Ma [netid: yma64]
+- Richard(Ting Yu) Wu [netid: tyw4]
 
 # Summary: 
 As college students, we often find ourselves with limited time to cook due to heavy coursework, tight schedules, and extracurricular commitments. Because of this, fast food has become the most convenient option for many of us. Around most university campuses, fast-food chains dominate the local food environment, which offer quick, inexpensive meals that fit a busy student lifestyle, but not necessarily a healthy one. Over time, frequent consumption of fast food, which is usually high in calories, fat, and sodium, may contribute to weight gain and other preventable health concerns.

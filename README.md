@@ -4,7 +4,7 @@ Contributors:
 - Richard(Ting Yu) Wu
 
 # Summary: 
-As college students, we often find ourselves with limited time to cook due to heavy coursework, tight schedules, and extracurricular commitments. Because of this, fast food has become the most convenient option for many of us. Around most university campuses, fast-food chains dominate the local food environment—offering quick, inexpensive meals that fit a busy student lifestyle, but not necessarily a healthy one. Over time, frequent consumption of fast food, which is usually high in calories, fat, and sodium, may contribute to weight gain and other preventable health concerns.
+As college students, we often find ourselves with limited time to cook due to heavy coursework, tight schedules, and extracurricular commitments. Because of this, fast food has become the most convenient option for many of us. Around most university campuses, fast-food chains dominate the local food environment, which offer quick, inexpensive meals that fit a busy student lifestyle, but not necessarily a healthy one. Over time, frequent consumption of fast food, which is usually high in calories, fat, and sodium, may contribute to weight gain and other preventable health concerns.
 
 This project explores a broader version of that everyday experience: whether the density of fast-food restaurants in a region is related to local obesity rates. We focus on county-level trends in the United States, using public health data from the CDC PLACES dataset and food-environment data from the USDA Food Environment Atlas. These datasets allow us to combine county-level estimates of adult obesity prevalence with measures of fast-food restaurant availability, giving us a structured way to examine potential relationships between the food environment and health outcomes.
 
@@ -84,8 +84,11 @@ After preparing the final dataset, the last step is to run the analysis script i
 
 # References: 
 Centers for Disease Control and Prevention. PLACES: Local Data for Better Health, County Data 2024. CDC, 2024, https://www.cdc.gov/places.
+
 United States Department of Agriculture, Economic Research Service. Food Environment Atlas. USDA ERS, https://www.ers.usda.gov/data-products/food-environment-atlas/.
+
 OpenRefine Project. OpenRefine, Version 3.7. OpenRefine, https://openrefine.org.
+
 Google Research. Google Colaboratory. Google, https://colab.research.google.com.
 
 # Project Overview

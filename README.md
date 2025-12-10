@@ -288,11 +288,11 @@ FIPS was chosen as the integration key because it is:
 Before integration, both datasets were aligned to the following conceptual schema:
 
 Attribute -	Description - Source
-FIPS - Unique county identifier - Both
-State - State abbreviation - Both (validated to match)
-County - County name - Both (validated to match)
-fast_food_density - Fast-food restaurants per 1,000 population - USDA
-obesity_rate - Age-adjusted adult obesity prevalence - CDC
+- FIPS - Unique county identifier - Both
+- State - State abbreviation - Both (validated to match)
+- County - County name - Both (validated to match)
+- fast_food_density - Fast-food restaurants per 1,000 population - USDA
+- obesity_rate - Age-adjusted adult obesity prevalence - CDC
 
 This conceptual schema ensures that each county becomes a single integrated record combining food environment + health outcome.
 

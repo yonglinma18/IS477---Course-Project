@@ -488,3 +488,41 @@ Because the raw CSV exceeds GitHub’s 25–50MB limit, we stored the exact vers
 All Python scripts, Jupyter notebooks, and Snakemake workflows included in this repository are released into the Public Domain under the: CC0 1.0 Universal (Public Domain Dedication)
 - The authors waives all copyright and related rights to the extent possible.
 - The software may be used, modified, or redistributed without permission or attribution.
+
+# Metadata and data documentation 
+## Data Dictionary
+| Column Name        | Type     | Description                                                         | Example     |
+|--------------------|----------|---------------------------------------------------------------------|-------------|
+| FIPS               | string   | 5-digit county identifier used by U.S. federal datasets            | "17031"     |
+| State              | string   | U.S. state two-letter abbreviation                                  | "IL"        |
+| County             | string   | County name                                                         | "Cook County" |
+| fast_food_density  | float    | Number of fast-food restaurants per 1,000 population (USDA)         | 0.83        |
+| obesity_rate       | float    | Age-adjusted adult obesity prevalence (%) from CDC PLACES          | 34.7        |
+
+## Descriptive Metadata
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "County-level Fast Food Density and Obesity Dataset",
+  "description": "An integrated dataset combining USDA Food Environment Atlas fast food restaurant density with CDC PLACES adult obesity prevalence. This dataset supports exploratory analysis of environmental influences on health outcomes.",
+  "creator": {
+    "@type": "Person",
+    "name": "Yonglin Ma"
+  },
+  "license": "CC0 1.0 Universal",
+  "distribution": {
+    "@type": "DataDownload",
+    "contentUrl": "https://uofi.box.com/s/0q80kvk5cen4nqxyh6vimmoknd11z1ul", 
+    "encodingFormat": "CSV"
+  },
+  "dateCreated": "2025-11-18",
+  "keywords": [
+    "USDA",
+    "CDC",
+    "public health",
+    "obesity",
+    "fast food",
+    "county-level data"
+  ]
+}

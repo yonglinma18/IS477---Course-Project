@@ -538,7 +538,21 @@ Where to Place These Files
 - data/merge/ → merged_output.csv
 - data/clean_2/ → merged_output_cleaned.csv
 
-**Software Dependencies**
+## Gitignore
+The .gitignore file excludes all Box-hosted datasets and auto-generated system files to keep the repository clean and compliant with project requirements.
+
+Ignored paths include:
+- data/raw/
+- data/clean_1/
+- data/clean_2/
+- data/merge/
+- .snakemake/
+- .ipynb_checkpoints/
+- __pycache__/
+
+These folders contain large raw/cleaned data or temporary files that should not be pushed to GitHub.
+
+## Software Dependencies
 
 This project uses a minimal set of Python dependencies required to reproduce the acquisition, integration, and analysis workflows. All dependencies are listed in the requirements.txt file in the project root.
 

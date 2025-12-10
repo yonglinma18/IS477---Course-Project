@@ -1,5 +1,6 @@
 # IS477 Final Project - Fast-Food Density & Obesity Analysis
-Contributors:
+
+# Contributors:
 - Yonglin Ma [netid: yma64]
 - Richard(Ting Yu) Wu [netid: tyw4]
 

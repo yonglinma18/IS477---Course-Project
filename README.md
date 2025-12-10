@@ -560,7 +560,7 @@ To recreate the environment, run: pip install -r requirements.txt
 
 These packages were used for data acquisition (requests), cleaning and integration (pandas, numpy), visualization (matplotlib), and workflow automation (snakemake).
 
-**Data Licenses**
+## Data Licenses
 
 This project uses two publicly available U.S. federal datasets. All federal data used in this project is in the Public Domain, in accordance with U.S. government open-data policy.
 
@@ -582,14 +582,16 @@ PLACES: Local Data for Better Health, County Data, 2024 Release. Last Updated 12
 The CDC PLACES dataset download link changed after our original acquisition date.
 Because the raw CSV exceeds GitHub’s 25–50MB limit, we stored the exact version we downloaded (verified by SHA-256 checksum) in a public Box folder, which preserves access to the exact dataset version used in this project.
 
-**Software License**
+## Software License
 
 All Python scripts, Jupyter notebooks, and Snakemake workflows included in this repository are released into the Public Domain under the: CC0 1.0 Universal (Public Domain Dedication)
 - The authors waives all copyright and related rights to the extent possible.
 - The software may be used, modified, or redistributed without permission or attribution.
 
-# Metadata and data documentation 
+# Metadata and data documentation
+
 ## Data Dictionary
+
 | Column Name        | Type     | Description                                                         | Example     |
 |--------------------|----------|---------------------------------------------------------------------|-------------|
 | FIPS               | string   | 5-digit county identifier used by U.S. federal datasets            | "17031"     |

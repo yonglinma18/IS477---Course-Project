@@ -181,10 +181,10 @@ This project performed all data profiling and cleaning using OpenRefine, with fu
 Two datasets were cleaned:
 - USDA Food Environment Atlas (fast_food_density)
 - CDC PLACES (obesity_rate)
-- 
+  
 Both were cleaned independently first, then merged, followed by a second cleaning pass to remove redundant merge columns.
 
-**USDA Dataset – Cleaning Summary (Performed in OpenRefine)**
+**USDA Dataset - Cleaning Summary (Performed in OpenRefine)**
 
 1. Imported the raw USDA CSV into OpenRefine
    

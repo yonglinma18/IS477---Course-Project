@@ -91,6 +91,11 @@ OpenRefine Project. OpenRefine, Version 3.7. OpenRefine, https://openrefine.org.
 
 Google Research. Google Colaboratory. Google, https://colab.research.google.com.
 
+
+
+
+## ***The following things that come below are the artifacts that are part of our project:***
+
 # Project Overview
 This project explores the relationship between **fast-food restaurant density** and **adult obesity rates** across U.S. counties.
 

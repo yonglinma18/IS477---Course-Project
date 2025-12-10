@@ -94,7 +94,7 @@ Google Research. Google Colaboratory. Google, https://colab.research.google.com.
 
 
 
-## ***The following things that come below are the artifacts that are part of our project:***
+## ***The following sections describe the artifacts included in this project and provide more detailed explanations of each component:***
 
 # Project Overview
 This project explores the relationship between **fast-food restaurant density** and **adult obesity rates** across U.S. counties.
@@ -206,7 +206,6 @@ IS477---Course-Project/
   - clean_2/       # Final cleaned merged dataset used for analysis
     
     - merged_output_cleaned.csv
-- final project submission  # Final written project report
 - notebooks/
   - acquire_cdc.ipynb
   - acquire_usda.ipynb
